@@ -167,6 +167,7 @@ int handle_mcu_command(MCU_Handler* state, char *filename)
 	if (pwrite(mcu_handler->MCU_driver_handle, buffer, result, 0) < 0) {
 		fprintf(stderr, "handle_mcu_command: pwrite FAIL\n");
 	}
+	close(mcu_handler->MCU_driver_handle);
 
 /*
 	if (ioctl(state->MCU_driver_handle, MCU_RUNTEST, 1) < 0) {
